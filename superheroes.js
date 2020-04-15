@@ -60,8 +60,15 @@ function showHero(oneHero){
     //fixing the delete option by id: (giving a data ID for each article)
     copy.querySelector("article").dataset.id = oneHero._id;
     //inside the copy find h1 and set the text content to be..:
-    copy.querySelector("h1").textContent = oneHero.alias;
-    copy.querySelector("h2").textContent = oneHero.real_name;
+    copy.querySelector("p.alias").textContent = oneHero.alias;
+    copy.querySelector("p.fullName").textContent = oneHero.real_name;
+    copy.querySelector("p.birthday").textContent = oneHero.dob;
+    copy.querySelector("p.location").textContent = oneHero.location;
+    copy.querySelector("p.colors").textContent = oneHero.fav_color;
+    //image
+    //console.log(oneHero.image)
+    //console.log(`https://frontend2020-db3c.restdb.io/media/${oneHero.image}`)
+    copy.querySelector(".profilePic").src = `https://frontend2020-db3c.restdb.io/media/${oneHero.image}?s=t`;
     //add each super power
     //*copy select the tenplate!!
     const ul = copy.querySelector("ul");
@@ -127,7 +134,10 @@ function put(id) {
         alias: "New Hero" + Math.random(),
         enemies: "100",
         powers: ["dive", "fly"],
-        dob: "2020-04-08"
+        dob: "2020-04-08",
+        location: "where",
+        fav_color: "pink",
+        image: ""
       };
     let postData = JSON.stringify(data);
     
@@ -144,8 +154,9 @@ function put(id) {
     .then(data => {
         //then copy in verything you want to bring again, this time as "data", as per the ".then" statement
         const copy = document.querySelector(`article[data-id="${id}"]`);
-        copy.querySelector("h1").textContent = data.alias;
-        copy.querySelector("h2").textContent = data.real_name;
+        copy.querySelector("p.alias").textContent = data.alias;
+        copy.querySelector("p.fullName").textContent = data.real_name;
+        copy.querySelector(".profilePic").src = "images/batman.jpg";
         const ul = copy.querySelector("ul");
         let thePowers;
         thePowers = data.powers;
