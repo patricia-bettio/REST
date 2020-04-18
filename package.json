@@ -1,0 +1,23 @@
+{
+  "name": "1.rest_exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "superheroes.js",
+  "scripts": {
+    "start": "parcel *.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbettio/REST.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pbettio/REST/issues"
+  },
+  "homepage": "https://github.com/pbettio/REST#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
